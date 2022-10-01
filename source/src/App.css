@@ -1,0 +1,125 @@
+.App{
+    min-height: 100vh;
+    background-image: url('/public/img/background.jpg');
+    background-size: cover;
+    /* dim background */
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: multiply;
+    display: flex;
+    flex-direction: column;
+    /* background-color: ; */
+}
+
+h1{
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+h2{
+    font-size: 2rem;
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.select {
+    display: inline-block;
+    border: none;
+    padding: 1px 10px;
+    margin: 0;
+    text-decoration: none;
+    background: #0069ed;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+.container{
+    padding: 10px;
+    text-align: center;
+    color: white;
+    /* font-size: 2rem; */
+}
+
+.parameters{
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px;
+}
+
+.distanceContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* margin: 10px; */
+}
+
+.subContainers{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* margin: 10px; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.submitButton{
+    /* display: inline-block; */
+    border: none;
+    padding: 1px 10px;
+    margin: 0;
+    text-decoration: none;
+    background: #0069ed;
+    color: #ffffff;
+    /* font-family: sans-serif; */
+    /* font-size: 1rem; */
+    cursor: pointer;
+    text-align: center;
+    min-width: 200px;
+}
+
+.card{
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    /* margin-top: 10px; */
+    /* margin-bottom: 10px; */
+    /* margin-left: 10px; */
+    /* margin-right: 10px; */
+}
+
+.card h3{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+
+.results{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin: 10px; */
+}
