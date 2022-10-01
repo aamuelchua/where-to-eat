@@ -32,25 +32,32 @@ function App() {
     }
   },[])
 
-  useEffect(()=>{
-    if (latitude && longitude && distance&&APIKEY){
-      console.log(url)
-      fetchNearbyFood()
+  // useEffect(()=>{
+  //   if (latitude && longitude && distance&&APIKEY){
+  //     console.log(url)
+  //     fetchNearbyFood()
 
-    }
-  },[latitude,longitude,APIKEY,distance])
+  //   }
+  // },[latitude,longitude,APIKEY,distance])
 
   const fetchNearbyFood = async () => {
+    // alert("fetching")
     const response = await fetch(url,{
       method: 'GET',
+      mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Basicauth`,
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+        'Access-Control-Allow-Origin':"http://localhost:3000",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+        'Access-Control-Allow-Credentials': true,
+        "Accept": "application/json"
       }
     });
+    // alert("fetched")
     const data = await response.json();
-    // console.log(data);
+    // alert(data["results"][0]);
     setAreaData(data.results)
   }
 
@@ -121,7 +128,7 @@ function App() {
             Submit
           </button>
         </div>
-        
+        <p>{JSON.stringify(areaData)}</p>
 
         <div className="results">
         {areaData?areaData.map((item,index)=>{
@@ -137,16 +144,13 @@ function App() {
               className="card"
 
               onClick={()=>{
-                alert("Open in which map?",[
-                  {
-                    text:"Google Maps",
-                    onPress:()=>{window.location = (`https://www.google.com/maps/search/?api=1&query=${item.geometry.location.lat},${item.geometry.location.lng}`)}
-                  },
-                  {
-                    text:"Apple Maps",
-                    onPress:()=>{window.location = (`https://maps.apple.com/?q=${item.geometry.location.lat},${item.geometry.location.lng}`)}
-                  }
-                ])
+                var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+                if (isIOS){
+                  window.location = (`https://maps.apple.com/?q=${item.geometry.location.lat},${item.geometry.location.lng}`)
+                }else
+                {
+                  window.location = (`https://www.google.com/maps/search/?api=1&query=${item.geometry.location.lat},${item.geometry.location.lng}`)
+                }
               }}
             >
                 <h3>{item.name}</h3>
