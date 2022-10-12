@@ -128,7 +128,6 @@ function App() {
             Submit
           </button>
         </div>
-        <p>{JSON.stringify(areaData)}</p>
 
         <div className="results">
         {areaData?areaData.map((item,index)=>{
